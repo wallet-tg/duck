@@ -20,15 +20,12 @@ jobs:
 
     - name: Download duck
       run: |
-        mkdir -p ./out/_pages
-        curl --fail --location --show-error --silent https://walletbot.me/error.html --output ./out/_pages/index.html
-        cp ./out/_pages/index.html ./out/_pages/error.html
-        touch ./out/_pages/.nojekyll
+        mkdir -p ./_site
+        curl --fail --location --show-error --silent https://walletbot.me/error.html --output ./_site/duck.html
+        touch ./_site/.nojekyll
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
-      with:
-        path: ./out/_pages
 
   deploy:
     needs: build
