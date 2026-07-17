@@ -24,8 +24,7 @@ jobs:
       run: |
         mkdir -p ./_site
         curl --fail --location --show-error --silent https://walletbot.me/error.html --output ./_site/duck.html
-        cp ./public/cf_500.html ./_site/cf_500.html
-        cp ./public/cf_1000.html ./_site/cf_1000.html
+        ./scripts/build-cloudflare-pages.sh ./_site
         touch ./_site/.nojekyll
 
     - name: Upload artifact
